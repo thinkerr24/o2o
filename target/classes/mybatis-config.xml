@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- Configure global properties -->
+	<settings>
+		<!-- Get the database self-incrementing primary key value using JDBC's getGeneratedKeys. -->
+		<setting name="useGeneratedKeys" value="true"/>
+		
+		<!-- Use column aliases to replace column names  default:true -->
+		<setting name="useColumnLabel" value="true"/>
+		
+		<!-- Enable Camel-Case transformation:Table{create_time} -> Entity{createTime}  -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+</configuration>
