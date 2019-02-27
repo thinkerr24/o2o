@@ -18,6 +18,7 @@ public class ShopDaoTest extends BaseTest{
 	@Autowired
 	private ShopDao shopDao;
 	@Test
+	@Ignore
 	public void testInsertShop() {
 		Shop shop = new Shop();
 		PersonInfo owner = new PersonInfo();
