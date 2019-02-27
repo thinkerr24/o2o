@@ -1,5 +1,12 @@
-2019-02-26 12:35:21.947 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - ==>  Preparing: insert into tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2019-02-26 12:35:22.003 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), ²âÊÔµÄµêÆÌ(String), test(String), test(String), test(String), test(String), null, 2019-02-26 12:35:21.256(Timestamp), null, 1(Integer), ÉóºËÖĞ(String)
-2019-02-26 12:40:45.450 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - ==>  Preparing: insert into tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2019-02-26 12:40:45.500 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), ²âÊÔµÄµêÆÌ(String), test(String), test(String), test(String), test(String), null, 2019-02-26 12:40:44.942(Timestamp), null, 1(Integer), ÉóºËÖĞ(String)
-2019-02-26 12:40:45.598 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2019-02-27 13:13:53.187 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? where shop_id = ? 
+2019-02-27 13:13:53.236 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==> Parameters: ²âÊÔÃèÊö(String), ²âÊÔµØÖ·(String), 2019-02-27 13:13:52.533(Timestamp), 1(Long)
+2019-02-27 13:13:53.269 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - <==    Updates: 0
+2019-02-27 13:15:55.942 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? where shop_id = ? 
+2019-02-27 13:15:55.991 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==> Parameters: ²âÊÔÃèÊö(String), ²âÊÔµØÖ·(String), 2019-02-27 13:15:55.389(Timestamp), 1(Long)
+2019-02-27 13:15:55.993 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - <==    Updates: 0
+2019-02-27 13:21:06.507 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - ==>  Preparing: insert into tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-02-27 13:21:06.553 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), ï¿½ï¿½ï¿½ÔµÄµï¿½ï¿½ï¿½(String), test(String), test(String), test(String), test(String), null, 2019-02-27 13:21:05.805(Timestamp), null, 1(Integer), ï¿½ï¿½ï¿½ï¿½ï¿½(String)
+2019-02-27 13:21:06.597 [main] DEBUG com.rr.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2019-02-27 13:23:03.652 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? where shop_id = ? 
+2019-02-27 13:23:03.699 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==> Parameters: æµ‹è¯•æè¿°(String), æµ‹è¯•åœ°å€Ö·(String), 2019-02-27 13:23:03.082(Timestamp), 1(Long)
+2019-02-27 13:23:03.753 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - <==    Updates: 1

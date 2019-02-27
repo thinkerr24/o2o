@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,15 +29,27 @@ public class ShopDaoTest extends BaseTest{
 		shop.setOwner(owner);
 		shop.setArea(area);
 		shop.setShopCategory(shopCategory);
-		shop.setShopName("²âÊÔµÄµêÆÌ");
+		shop.setShopName("æµ‹è¯•çš„åº—é“º");
 		shop.setShopDesc("test");
 		shop.setShopAddr("test");
 		shop.setPhone("test");
 		shop.setShopImg("test");
 		shop.setCreateTime(new Date());
 		shop.setEnableStatus(1);
-		shop.setAdvice("ÉóºËÖĞ");
+		shop.setAdvice("å®¡æ ¸ä¸­");
 		int effectedNum = shopDao.insertShop(shop);
+		assertEquals(1, effectedNum);
+		
+	}
+	
+	@Test
+	public void testUpdateShop() {
+		Shop shop = new Shop();
+		shop.setShopId(1L);
+		shop.setShopDesc("æµ‹è¯•æè¿°");
+		shop.setShopAddr("æµ‹è¯•åœ°å€Ö·");
+		shop.setLastEditTime(new Date());
+		int effectedNum = shopDao.updateShop(shop);
 		assertEquals(1, effectedNum);
 		
 	}

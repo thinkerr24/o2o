@@ -7,4 +7,9 @@ public interface ShopDao {
    * Add new shop
    */
 	int insertShop(Shop shop);
+
+  /**
+   * Update shop info
+   */
+	int updateShop(Shop shop);
 }
