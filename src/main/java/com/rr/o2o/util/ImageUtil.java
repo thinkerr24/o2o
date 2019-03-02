@@ -56,7 +56,7 @@ public class ImageUtil {
 	 * Generate random filename, current time year+month+second+random_5_bit_number
 	 * @return
 	 */
-	private static String getRandomFileName() {
+	public static String getRandomFileName() {
 		// Get random_5_bit_number
 		int rannum = r.nextInt(89999) + 10000;
 		String nowTimeStr = SDATEFORMAT.format(new Date());
