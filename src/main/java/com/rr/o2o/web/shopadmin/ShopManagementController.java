@@ -19,6 +19,7 @@ import com.rr.o2o.dto.ShopExecution;
 import com.rr.o2o.entity.PersonInfo;
 import com.rr.o2o.entity.Shop;
 import com.rr.o2o.enums.ShopStateEnum;
+import com.rr.o2o.exceptions.ShopOperationException;
 import com.rr.o2o.service.ShopService;
 import com.rr.o2o.util.HttpServletRequestUtil;
 import com.rr.o2o.util.ImageUtil;
@@ -61,25 +62,27 @@ public class ShopManagementController {
 		// 2. Register shop
 		if (shop != null && shopImg != null) {
 			PersonInfo owner = new PersonInfo();
+			// Session TODO
 			owner.setUserId(1L);
 			shop.setOwner(owner);
-			File shopImgFile = new File(PathUtil.getImgBasePath() + ImageUtil.getRandomFileName());
+	
+			ShopExecution se;
 			try {
-				shopImgFile.createNewFile();
-				inputStreamToFile(shopImg.getInputStream(), shopImgFile);
-			} catch(Exception e) {
+				se = shopService.addShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+				if (se.getState() == ShopStateEnum.CHECK.getState()) {
+					modelMap.put("success", true);
+				} else {
+					modelMap.put("success", false);
+					modelMap.put("errMsg", se.getStateInfo());
+				}
+			} catch (ShopOperationException e) {
 				modelMap.put("success", false);
-				modelMap.put("errMsg", "请输入店铺信息");
-				return modelMap;	
+				modelMap.put("errMsg", e.getMessage());
+			} catch (IOException e) {
+				modelMap.put("success", false);
+				modelMap.put("errMsg", e.getMessage());				
 			}
 			
-			ShopExecution se = shopService.addShop(shop, shopImgFile);
-			if (se.getState() == ShopStateEnum.CHECK.getState()) {
-				modelMap.put("success", true);
-			} else {
-				modelMap.put("success", false);
-				modelMap.put("errMsg", se.getStateInfo());
-			}
 			return modelMap;
 		} else {
 			modelMap.put("success", false);
@@ -89,7 +92,7 @@ public class ShopManagementController {
 		
 	}
 	
-	private static void inputStreamToFile(InputStream ins, File file) {
+/*	private static void inputStreamToFile(InputStream ins, File file) {
 		FileOutputStream os = null;
 		try {
 			os = new FileOutputStream(file);
@@ -113,5 +116,5 @@ public class ShopManagementController {
 				throw new RuntimeException("调用inputStringToFile关闭时资源产生异常:" + e.getMessage());
 			}
 		}
-	}
+	}*/
 }
