@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.rr.o2o.entity.Area;
-import com.rr.o2o.service.impl.AreaService;
+import com.rr.o2o.service.impl.AreaServiceImpl;
 
 
 @Controller
@@ -24,7 +24,7 @@ public class AreaController {
 
 	private Logger logger = LoggerFactory.getLogger(AreaController.class);
 	@Autowired
-	private AreaService areaService;
+	private AreaServiceImpl areaService;
 	@RequestMapping(value="/listarea", method=RequestMethod.GET)
 	@ResponseBody
 	private Map<String, Object> listArea() {

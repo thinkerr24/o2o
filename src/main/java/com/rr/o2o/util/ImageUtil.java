@@ -14,14 +14,14 @@ public class ImageUtil {
 	private static final SimpleDateFormat SDATEFORMAT = new SimpleDateFormat("yyyyMMddmmss");
 	private static final Random r = new Random();
 	
-	public static void generateThumbnail(CommonsMultipartFile thumbnail, String targetAddr) {
+	public static String  generateThumbnail(File thumbnail, String targetAddr) {
 		String realFileName = getRandomFileName();
 		String extension = getFileExtension(thumbnail);
 		makeDIrPath(targetAddr);
 		String relativeAddr = targetAddr + realFileName + extension;
 		File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
 		try {
-			Thumbnails.of(thumbnail.getInputStream()).size(200, 200)
+			Thumbnails.of(thumbnail).size(200, 200)
 			.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25F)
 			.outputQuality(0.8F)
 			.toFile(dest);
@@ -29,6 +29,7 @@ public class ImageUtil {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		return relativeAddr;
 	}
 	
 	/**
@@ -46,8 +47,8 @@ public class ImageUtil {
 		
 	}
 	// Get InputStream file extension name
-	private static String getFileExtension(CommonsMultipartFile cFile) {
-		String originalFileName = cFile.getOriginalFilename();
+	private static String getFileExtension(File file) {
+		String originalFileName = file.getName();
 		return originalFileName.substring(originalFileName.lastIndexOf("."));
 	}
 
@@ -61,11 +62,5 @@ public class ImageUtil {
 		String nowTimeStr = SDATEFORMAT.format(new Date());
 		return nowTimeStr + rannum;
 	}
-	public static void main(String[] args) throws IOException {
-		
-		Thumbnails.of(new File("D:\\rabbit.jpg"))
-		.size(200, 200).watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25F)
-		.outputQuality(0.8F)
-		.toFile("D:\\rabbit1.jpg");;
-	}
+	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.rr.o2o.dao.AreaDao;
 import com.rr.o2o.entity.Area;
+import com.rr.o2o.service.AreaService;
 
 @Service
 public class AreaServiceImpl implements AreaService{

@@ -1,4 +1,4 @@
-package com.rr.o2o.service.impl;
+package com.rr.o2o.service;
 
 import java.util.List;
 
