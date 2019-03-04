@@ -92,29 +92,5 @@ public class ShopManagementController {
 		
 	}
 	
-/*	private static void inputStreamToFile(InputStream ins, File file) {
-		FileOutputStream os = null;
-		try {
-			os = new FileOutputStream(file);
-			int bytesRead = 0;
-			byte[] buffer = new byte[1024];
-			while ((bytesRead = ins.read(buffer)) != -1) {
-				os.write(buffer, 0, bytesRead);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException("调用inputStringToFile产生异常:" + e.getMessage());
-		} finally {
-			try {
-				if (os != null) {
-					os.close();
-				}
-				if (ins != null) {
-					ins.close();
-				}
-			}
-			catch (Exception e) {
-				throw new RuntimeException("调用inputStringToFile关闭时资源产生异常:" + e.getMessage());
-			}
-		}
-	}*/
+
 }
