@@ -2,7 +2,7 @@
  *
  */
 $(function(){
-	var initUrl = '/o2o/shop/getShopinitinfo';
+	var initUrl = '/o2o/shopadmin/getshopinitinfo';
 	var registerShopUrl = '/o2o/shopadmin/registershop';
 	//alert(initUrl);
 	getShopInitInfo();
