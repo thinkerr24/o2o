@@ -28,6 +28,7 @@ import com.rr.o2o.exceptions.ShopOperationException;
 import com.rr.o2o.service.AreaService;
 import com.rr.o2o.service.ShopCategoryService;
 import com.rr.o2o.service.ShopService;
+import com.rr.o2o.util.CodeUtil;
 import com.rr.o2o.util.HttpServletRequestUtil;
 
 @Controller
@@ -63,8 +64,12 @@ public class ShopManagementController {
 	@ResponseBody
 	private Map<String, Object> registerShop(HttpServletRequest request) {
 		Map<String, Object> modelMap = new HashMap<>();
+		if (!CodeUtil.checkVerifyCode(request)) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "验证码错误");
+			return modelMap;
+		}
 		// 1. Receive and convert corresponding argument, including shop information and pic information
-		
 		String shopStr = HttpServletRequestUtil.getString(request, "shopStr");
 		ObjectMapper mapper = new ObjectMapper();
 		Shop shop = null;

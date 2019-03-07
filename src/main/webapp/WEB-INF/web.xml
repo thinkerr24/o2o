@@ -10,8 +10,59 @@
   	<welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
-
-
+  <servlet>
+  		<servlet-name>Kaptcha</servlet-name>
+  		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+  		<!-- Have border -->
+  		<init-param>
+  			<param-name>kaptcha.border</param-name>
+  			<param-value>no</param-value>
+  		</init-param>
+  		<!-- Font color -->
+  		<init-param>
+  			<param-name>kaptcha.textproducer.font.color</param-name>
+  			<param-value>red</param-value>
+  		</init-param>
+  		<!-- Font size -->
+  		<init-param>
+  			<param-name>kaptcha.textproducer.font.size</param-name>
+  			<param-value>43</param-value>
+  		</init-param>
+  		<!-- Pic width -->
+  		<init-param>
+  			<param-name>katpctha.image.width</param-name>
+  			<param-value>135</param-value>
+  		</init-param>
+  			<!-- Pic height -->
+  		<init-param>
+  			<param-name>katpctha.image.height</param-name>
+  			<param-value>50</param-value>
+  		</init-param>
+  		<!-- Code component -->
+  		<init-param>
+  			<param-name>katpcha.textproducer.char.string</param-name>
+  			<param-value>ACDEFHKPRSTWX345679</param-value>
+  		</init-param>
+  		<!-- Code number -->
+  		<init-param>
+  			<param-name>katpcha.textproducer.char.length</param-name>
+  			<param-value>4</param-value>
+  		</init-param>
+  		<!-- font -->
+  		<init-param>
+  			<param-name>katpcha.textproducer.font.names</param-name>
+  			<param-value>Arial</param-value>
+  		</init-param>
+  		<!-- Disturb-line color -->
+  		<init-param>
+  			<param-name>katpcha.noise.color</param-name>
+  			<param-value>black</param-value>
+  		</init-param>
+  </servlet>
+  <servlet-mapping>
+  		<servlet-name>Kaptcha</servlet-name>
+  		<url-pattern>/Kaptcha</url-pattern>
+  </servlet-mapping>
   <servlet>
   		<servlet-name>spring-dispacher</servlet-name>
   		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -20,7 +71,6 @@
   			<param-value>classpath:spring/spring-*.xml</param-value>
   		</init-param>
   </servlet>
-  
   <servlet-mapping>
   		<servlet-name>spring-dispacher</servlet-name>
   		<url-pattern>/</url-pattern>
