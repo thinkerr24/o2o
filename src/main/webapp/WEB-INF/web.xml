@@ -45,7 +45,7 @@
   		</init-param>
   		<!-- Code number -->
   		<init-param>
-  			<param-name>katpcha.textproducer.char.length</param-name>
+  			<param-name>kaptcha.textproducer.char.length</param-name>
   			<param-value>4</param-value>
   		</init-param>
   		<!-- font -->
