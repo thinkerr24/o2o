@@ -10,3 +10,12 @@
 2019-03-09 18:18:58.022 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: select s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name from tb_shop s, tb_area a, tb_shop_category sc where s.area_id = a.area_id and s.shop_category_id = sc.shop_category_id and s.shop_id = ? 
 2019-03-09 18:18:58.054 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 1(Long)
 2019-03-09 18:18:58.069 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2019-03-09 23:36:29.380 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: select s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name from tb_shop s, tb_area a, tb_shop_category sc where s.area_id = a.area_id and s.shop_category_id = sc.shop_category_id and s.shop_id = ? 
+2019-03-09 23:36:29.428 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 1(Long)
+2019-03-09 23:36:29.453 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - <==      Total: 1
+2019-03-09 23:36:30.412 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_img=?, last_edit_time=? where shop_id = ? 
+2019-03-09 23:36:30.414 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - ==> Parameters: 修改后的店铺(String), upload\item\shop\1\20190309362969770.jpg(String), 2019-03-09 23:36:30.379(Timestamp), 1(Long)
+2019-03-09 23:36:30.526 [main] DEBUG com.rr.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2019-03-09 23:36:30.528 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - ==>  Preparing: select s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name from tb_shop s, tb_area a, tb_shop_category sc where s.area_id = a.area_id and s.shop_category_id = sc.shop_category_id and s.shop_id = ? 
+2019-03-09 23:36:30.529 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - ==> Parameters: 1(Long)
+2019-03-09 23:36:30.537 [main] DEBUG com.rr.o2o.dao.ShopDao.queryByShopId - <==      Total: 1

@@ -15,11 +15,22 @@ import com.rr.o2o.entity.PersonInfo;
 import com.rr.o2o.entity.Shop;
 import com.rr.o2o.entity.ShopCategory;
 import com.rr.o2o.enums.ShopStateEnum;
+import com.rr.o2o.exceptions.ShopOperationException;
 
 public class ShopServiceTest extends BaseTest{
 	@Autowired
 	private ShopService shopService;
 	
+	@Test
+	public void testModifyShop() throws ShopOperationException, FileNotFoundException {
+		Shop shop = new Shop();
+		shop.setShopId(1L);
+		shop.setShopName("修改后的店铺");
+		File shopImg = new File("D:\\projectdev\\image\\autumn.jpg");
+		InputStream is = new FileInputStream(shopImg);
+		ShopExecution shopExecution = shopService.modifyShop(shop, is, "autumn.jpg");
+		System.out.println("新的图片地址为:" + shopExecution.getShop().getShopImg());
+	}
 	@Test
 	public void testAddShop() throws FileNotFoundException {
 		Shop shop = new Shop();

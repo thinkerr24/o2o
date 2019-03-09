@@ -7,5 +7,29 @@ import com.rr.o2o.entity.Shop;
 import com.rr.o2o.exceptions.ShopOperationException;
 
 public interface ShopService {
+	/**
+	 * Get shop-info by shop-id
+	 * @param shopId
+	 * @return
+	 */
+	Shop getByShopId(long shopId); 
+	
+	/**
+	 * Update shop-info
+	 * @param shop
+	 * @param shopImgInputStream
+	 * @param fileName
+	 * @return
+	 * @throws ShopOperationException
+	 */
+	ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+	/**
+	 * Register shop-info, including picture-deal
+	 * @param shop
+	 * @param shopImgInputStream
+	 * @param fileName
+	 * @return
+	 * @throws ShopOperationException
+	 */
 	ShopExecution addShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
 }

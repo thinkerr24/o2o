@@ -63,5 +63,22 @@ public class ImageUtil {
 		String nowTimeStr = SDATEFORMAT.format(new Date());
 		return nowTimeStr + rannum;
 	}
-	
+	/**
+	 *  stotrPath is file-path or dir-path?
+	 *  if file-path: remove the file;
+	 *  if  dir-path: remove all file of the dir.
+	 * @param storePath
+	 */
+	public static void deleteFileOrPath(String storePath) {
+		File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+		if (fileOrPath.exists()) {
+			if (fileOrPath.isDirectory()) {
+				File[] files = fileOrPath.listFiles();
+				for (int i = 0; i < files.length; i++) {
+					files[i].delete();
+				}
+			}
+			fileOrPath.delete();
+		}
+	}
 }
