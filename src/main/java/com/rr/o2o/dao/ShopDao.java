@@ -12,4 +12,9 @@ public interface ShopDao {
    * Update shop info
    */
 	int updateShop(Shop shop);
+
+  /**
+   * Query shop by shopId
+   */
+	Shop queryByShopId(long shopId);
 }
