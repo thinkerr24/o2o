@@ -1,8 +1,8 @@
 package com.rr.o2o.dao;
 
 import static org.junit.Assert.assertEquals;
-
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,6 +19,7 @@ public class ShopDaoTest extends BaseTest{
 	private ShopDao shopDao;
 	
 	@Test
+	@Ignore
 	public void testQueryByShopId() {
 		long shopId = 1;
 		Shop shop = shopDao.queryByShopId(shopId);
@@ -62,5 +63,31 @@ public class ShopDaoTest extends BaseTest{
 		int effectedNum = shopDao.updateShop(shop);
 		assertEquals(1, effectedNum);
 		
+	}
+	
+	@Test
+	@Ignore
+	public void testQueryShopList() {
+		Shop shopCondition = new Shop(); 
+		PersonInfo owner = new PersonInfo();
+		owner.setUserId(1L);
+		shopCondition.setOwner(owner);
+		List<Shop> shopList = shopDao.queryShopList(shopCondition, 0, 5);
+		System.out.println("ShopList.size = " + shopList.size());
+	}
+	
+	@Test
+	public void testQueryShopListAndCount() {
+		Shop shopCondition = new Shop(); 
+		PersonInfo owner = new PersonInfo();
+		owner.setUserId(1L);
+		shopCondition.setOwner(owner);
+		ShopCategory sc = new ShopCategory();
+		sc.setShopCategoryId(1L);
+		shopCondition.setShopCategory(sc);
+		List<Shop> shopList = shopDao.queryShopList(shopCondition, 1, 5);
+		int count = shopDao.queryShopCount(shopCondition);
+		System.out.println("ShopList.size = " + shopList.size());
+		System.out.println("Total shopList-number = " + count);
 	}
 }

@@ -8,6 +8,14 @@ import com.rr.o2o.exceptions.ShopOperationException;
 
 public interface ShopService {
 	/**
+	 * Return shop-list according to shopCondition pagination
+	 * @param shopCondition
+	 * @param pageIndex
+	 * @param pageSize
+	 * @return
+	 */
+	ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
+	/**
 	 * Get shop-info by shop-id
 	 * @param shopId
 	 * @return

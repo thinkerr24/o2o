@@ -4,7 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.*;
 import java.util.Date;
+import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,6 +24,7 @@ public class ShopServiceTest extends BaseTest{
 	private ShopService shopService;
 	
 	@Test
+	@Ignore
 	public void testModifyShop() throws ShopOperationException, FileNotFoundException {
 		Shop shop = new Shop();
 		shop.setShopId(1L);
@@ -32,6 +35,7 @@ public class ShopServiceTest extends BaseTest{
 		System.out.println("新的图片地址为:" + shopExecution.getShop().getShopImg());
 	}
 	@Test
+	@Ignore
 	public void testAddShop() throws FileNotFoundException {
 		Shop shop = new Shop();
 		PersonInfo owner = new PersonInfo();
@@ -57,5 +61,19 @@ public class ShopServiceTest extends BaseTest{
 		
 		assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
 		
+	}
+	
+	@Test
+	public void testGetShopList() {
+		Shop shopCondition = new Shop(); 
+		PersonInfo owner = new PersonInfo();
+		owner.setUserId(1L);
+		shopCondition.setOwner(owner);
+		ShopCategory sc = new ShopCategory();
+		sc.setShopCategoryId(1L);
+		shopCondition.setShopCategory(sc);
+		ShopExecution se = shopService.getShopList(shopCondition, 3, 2);
+		System.out.println("shopList-number:" + se.getShopList().size());
+		System.out.println("shopList-total-number: " + se.getCount());
 	}
 }

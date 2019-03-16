@@ -79,7 +79,7 @@ $(function(){
 		}
 		formData.append("verifyCodeActual", verifyCodeActual);
 		$.ajax({
-			url:shopId?editShopUrl:registerShopUrl,
+			url:(shopId?editShopUrl:registerShopUrl),
 			type:'POST',
 			data:formData,
 			contentType:false,
