@@ -154,3 +154,8 @@ INSERT tb_person_info VALUES(NULL, '测试', 'test', 'test@test.com', '1', 1, 2,
 -- INSERT tb_shop_category VALUES(1, '咖啡奶茶', 'test desc', 'test.img', 1, NULL, NULL, NULL);
 -- 4-11 
 INSERT tb_shop_category VALUES(2,'蜜雪冰城', 'test2 desc', 'test2.img', 0, NULL, NULL, 1);
+
+-- 7-2
+INSERT INTO tb_product_category(product_category_name, priority, shop_id) VALUES('店铺商品类别1', 0, 1);
+INSERT INTO tb_product_category(product_category_name, priority, shop_id) VALUES('店铺商品类别2', 20, 1);
+INSERT INTO tb_product_category(product_category_name, priority, shop_id) VALUES('店铺商品类别3', 0, 1);
