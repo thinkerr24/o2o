@@ -27,4 +27,13 @@ public enum ProductCategoryStateEnum {
 	public void setStateInfo(String stateInfo) {
 		this.stateInfo = stateInfo;
 	}
+	
+	public static ProductCategoryStateEnum stateOf(int index) {
+		for (ProductCategoryStateEnum state: values()) {
+			if (state.getState() == index) {
+				return state;
+			}
+		}
+		return null;
+	}
 }
