@@ -2,6 +2,7 @@ package com.rr.o2o.service;
 
 import java.io.InputStream;
 
+import com.rr.o2o.dto.ImageHolder;
 import com.rr.o2o.dto.ShopExecution;
 import com.rr.o2o.entity.Shop;
 import com.rr.o2o.exceptions.ShopOperationException;
@@ -30,7 +31,7 @@ public interface ShopService {
 	 * @return
 	 * @throws ShopOperationException
 	 */
-	ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+	ShopExecution modifyShop(Shop shop, ImageHolder thumbnail) throws ShopOperationException;
 	/**
 	 * Register shop-info, including picture-deal
 	 * @param shop
@@ -39,5 +40,5 @@ public interface ShopService {
 	 * @return
 	 * @throws ShopOperationException
 	 */
-	ShopExecution addShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+	ShopExecution addShop(Shop shop, ImageHolder thumbnail) throws ShopOperationException;
 }

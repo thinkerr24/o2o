@@ -8,6 +8,8 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import com.rr.o2o.dto.ImageHolder;
+
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 
@@ -16,14 +18,14 @@ public class ImageUtil {
 	private static final SimpleDateFormat SDATEFORMAT = new SimpleDateFormat("yyyyMMddmmss");
 	private static final Random r = new Random();
 	
-	public static String  generateThumbnail(InputStream thumbnailInputStream, String fileName,  String targetAddr) {
+	public static String  generateThumbnail(ImageHolder thumbnail,  String targetAddr) {
 		String realFileName = getRandomFileName();
-		String extension = getFileExtension(fileName);
+		String extension = getFileExtension(thumbnail.getImageName());
 		makeDIrPath(targetAddr);
 		String relativeAddr = targetAddr + realFileName + extension;
 		File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
 		try {
-			Thumbnails.of(thumbnailInputStream).size(200, 200)
+			Thumbnails.of(thumbnail.getImage()).size(200, 200)
 			.watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25F)
 			.outputQuality(0.8F)
 			.toFile(dest);

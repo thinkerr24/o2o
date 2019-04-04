@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.rr.o2o.BaseTest;
+import com.rr.o2o.dto.ImageHolder;
 import com.rr.o2o.dto.ShopExecution;
 import com.rr.o2o.entity.Area;
 import com.rr.o2o.entity.PersonInfo;
@@ -31,7 +32,7 @@ public class ShopServiceTest extends BaseTest{
 		shop.setShopName("修改后的店铺");
 		File shopImg = new File("D:\\projectdev\\image\\autumn.jpg");
 		InputStream is = new FileInputStream(shopImg);
-		ShopExecution shopExecution = shopService.modifyShop(shop, is, "autumn.jpg");
+		ShopExecution shopExecution = shopService.modifyShop(shop, new ImageHolder(is, "autumn.jpg"));
 		System.out.println("新的图片地址为:" + shopExecution.getShop().getShopImg());
 	}
 	@Test
@@ -57,7 +58,7 @@ public class ShopServiceTest extends BaseTest{
 		
 		File shopImg = new File("D:\\projectdev\\image\\rabbit.jpg");
 		InputStream is = new FileInputStream(shopImg);
-		ShopExecution se = shopService.addShop(shop, is, shopImg.getName());
+		ShopExecution se = shopService.addShop(shop, new ImageHolder(is, shopImg.getName()));
 		
 		assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
 		

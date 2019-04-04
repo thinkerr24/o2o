@@ -18,6 +18,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rr.o2o.dto.ImageHolder;
 import com.rr.o2o.dto.ShopExecution;
 import com.rr.o2o.entity.Area;
 import com.rr.o2o.entity.PersonInfo;
@@ -167,7 +168,7 @@ public class ShopManagementController {
 	
 			ShopExecution se;
 			try {
-				se = shopService.addShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+				se = shopService.addShop(shop, new ImageHolder(shopImg.getInputStream(), shopImg.getOriginalFilename()));
 				if (se.getState() == ShopStateEnum.CHECK.getState()) {
 					modelMap.put("success", true);
 					// The shop-list of shop that the user can operate
@@ -234,9 +235,9 @@ public class ShopManagementController {
 			ShopExecution se;
 			try {
 				if (shopImg == null) {
-					se = shopService.modifyShop(shop, null, null);
+					se = shopService.modifyShop(shop, null);
 				} else {
-				se = shopService.modifyShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+				se = shopService.modifyShop(shop, new ImageHolder(shopImg.getInputStream(), shopImg.getOriginalFilename()));
 				}
 				if (se.getState() == ShopStateEnum.SUCCESS.getState()) {
 					modelMap.put("success", true);
