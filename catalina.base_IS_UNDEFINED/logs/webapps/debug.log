@@ -1,21 +1,20 @@
-2019-03-31 21:40:21.861 [main] DEBUG c.r.o.d.P.batchInsertProductCategory - ==>  Preparing: insert into tb_product_category(product_category_name, priority, create_time, shop_id) values ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
-2019-03-31 21:40:21.911 [main] DEBUG c.r.o.d.P.batchInsertProductCategory - ==> Parameters: 商品类别1(String), 1(Integer), 2019-03-31 21:40:21.317(Timestamp), 1(Long), 商品类别2(String), 2(Integer), 2019-03-31 21:40:21.317(Timestamp), 1(Long)
-2019-03-31 21:40:22.200 [main] DEBUG c.r.o.d.P.batchInsertProductCategory - <==    Updates: 2
-2019-03-31 21:40:22.225 [main] DEBUG c.r.o.d.P.queryProductCategoryList - ==>  Preparing: select product_category_id, product_category_name, priority, create_time, shop_id from tb_product_category where shop_id = ? order by priority desc 
-2019-03-31 21:40:22.226 [main] DEBUG c.r.o.d.P.queryProductCategoryList - ==> Parameters: 1(Long)
-2019-03-31 21:40:22.245 [main] DEBUG c.r.o.d.P.queryProductCategoryList - <==      Total: 9
-2019-03-31 21:40:22.252 [main] DEBUG c.r.o.d.P.queryProductCategoryList - ==>  Preparing: select product_category_id, product_category_name, priority, create_time, shop_id from tb_product_category where shop_id = ? order by priority desc 
-2019-03-31 21:40:22.252 [main] DEBUG c.r.o.d.P.queryProductCategoryList - ==> Parameters: 1(Long)
-2019-03-31 21:40:22.259 [main] DEBUG c.r.o.d.P.queryProductCategoryList - <==      Total: 9
-2019-03-31 21:40:22.262 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: delete from tb_product_category where product_category_id = ? and shop_id = ? 
-2019-03-31 21:40:22.263 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 7(Long), 1(Long)
-2019-03-31 21:40:22.319 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2019-03-31 21:40:22.319 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: delete from tb_product_category where product_category_id = ? and shop_id = ? 
-2019-03-31 21:40:22.320 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 11(Long), 1(Long)
-2019-03-31 21:40:22.388 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2019-03-31 21:40:22.388 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: delete from tb_product_category where product_category_id = ? and shop_id = ? 
-2019-03-31 21:40:22.389 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 6(Long), 1(Long)
-2019-03-31 21:40:22.425 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2019-03-31 21:40:22.425 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: delete from tb_product_category where product_category_id = ? and shop_id = ? 
-2019-03-31 21:40:22.426 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 10(Long), 1(Long)
-2019-03-31 21:40:22.455 [main] DEBUG c.r.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
+2019-04-04 09:44:23.560 [main] DEBUG com.rr.o2o.dao.AreaDao.queryArea - ==>  Preparing: select area_id, area_name, priority, create_time, last_edit_time from tb_area order by priority desc 
+2019-04-04 09:44:23.607 [main] DEBUG com.rr.o2o.dao.AreaDao.queryArea - ==> Parameters: 
+2019-04-04 09:44:23.637 [main] DEBUG com.rr.o2o.dao.AreaDao.queryArea - <==      Total: 2
+2019-04-04 09:45:10.199 [main] DEBUG com.rr.o2o.dao.ShopDao.queryShopList - ==>  Preparing: select s.shop_id, s.shop_name, s.shop_desc, s.shop_addr, s.phone, s.shop_img, s.priority, s.create_time, s.last_edit_time, s.enable_status, s.advice, a.area_id, a.area_name, sc.shop_category_id, sc.shop_category_name from tb_shop s, tb_area a, tb_shop_category sc WHERE s.owner_id = ? and s.area_id = a.area_id and s.shop_category_id = sc.shop_category_id order by s.priority DESC limit ?, ?; 
+2019-04-04 09:45:10.254 [main] DEBUG com.rr.o2o.dao.ShopDao.queryShopList - ==> Parameters: 1(Long), 0(Integer), 5(Integer)
+2019-04-04 09:45:10.371 [main] DEBUG com.rr.o2o.dao.ShopDao.queryShopList - <==      Total: 5
+2019-04-04 09:47:41.573 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==>  Preparing: insert into tb_product(product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-04-04 09:47:41.631 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试1(String), 测试Desc1(String), test1(String), null, null, 1(Integer), 2019-04-04 09:47:40.974(Timestamp), 2019-04-04 09:47:40.974(Timestamp), 1(Integer), 1(Long), 1(Long)
+2019-04-04 09:53:37.860 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==>  Preparing: insert into tb_product(product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-04-04 09:53:37.917 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试1(String), 测试Desc1(String), test1(String), null, null, 1(Integer), 2019-04-04 09:53:37.33(Timestamp), 2019-04-04 09:53:37.33(Timestamp), 1(Integer), 1(Long), 1(Long)
+2019-04-04 09:53:38.111 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2019-04-04 09:53:38.119 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==>  Preparing: insert into tb_product(product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-04-04 09:53:38.121 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试2(String), 测试Desc2(String), test2(String), null, null, 2(Integer), 2019-04-04 09:53:37.33(Timestamp), 2019-04-04 09:53:37.33(Timestamp), 0(Integer), 1(Long), 1(Long)
+2019-04-04 09:53:38.276 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2019-04-04 09:53:38.277 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==>  Preparing: insert into tb_product(product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-04-04 09:53:38.278 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试3(String), 测试Desc3(String), test3(String), null, null, 0(Integer), 2019-04-04 09:53:37.33(Timestamp), 2019-04-04 09:53:37.33(Timestamp), 1(Integer), 1(Long), 1(Long)
+2019-04-04 09:53:38.388 [main] DEBUG com.rr.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2019-04-04 09:54:23.615 [main] DEBUG com.rr.o2o.dao.ProductImgDao.batchInsertProductImg - ==>  Preparing: insert into tb_product_img( img_addr, img_desc, priority, create_time, product_id) values ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2019-04-04 09:54:23.650 [main] DEBUG com.rr.o2o.dao.ProductImgDao.batchInsertProductImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2019-04-04 09:54:23.08(Timestamp), 2(Long), 图片2(String), null, 1(Integer), 2019-04-04 09:54:23.08(Timestamp), 2(Long)
+2019-04-04 09:54:23.763 [main] DEBUG com.rr.o2o.dao.ProductImgDao.batchInsertProductImg - <==    Updates: 2
