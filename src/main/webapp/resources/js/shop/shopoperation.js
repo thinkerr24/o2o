@@ -59,9 +59,9 @@ $(function(){
 		shop.phone = $('#shop-phone').val();
 		shop.shopDesc = $("#shop-desc").val();
 		shop.shopCategory = {
-			 shopCategoryId : $('#shop-category').find('option').not(function(){
-				 return !this.selected;
-			 }).data('id')
+				shopCategoryId : $('#shop-category').find('option').not(function() {
+					return !this.selected;
+				}).data('id')
 		};
 		shop.area = {
 				areaId : $('#area').find('option').not(function(){
