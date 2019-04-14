@@ -7,4 +7,9 @@ public interface ProductDao {
 	 * Add product
 	 */
 	int insertProduct(Product product);
+	
+	Product queryProductById(long productId);
+	
+	int updateProduct(Product product);
+	
 }

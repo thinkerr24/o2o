@@ -21,4 +21,12 @@
 			)
 		</foreach>
 	</insert>
+	
+	 <delete id="deleteProductImgByProductId">
+ 		delete from
+ 		tb_product_img
+ 		where 
+ 		product_id =
+ 		#{productId}
+ 	</delete>
 </mapper>
