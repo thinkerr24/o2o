@@ -56,4 +56,33 @@ public class ProductServiceTest extends BaseTest{
 		assertEquals(ProductStateEnum.SUCCESS.getState(), pe.getState());
 
 	}
+	
+	@Test
+	public void testModifyProduct() throws ProductOperationException, FileNotFoundException {
+		Product product = new Product();
+		Shop shop = new Shop();
+		shop.setShopId(1l);
+		ProductCategory pc = new ProductCategory();
+		pc.setProductCategoryId(1l);
+		product.setProductId(2l);
+		product.setShop(shop);
+		product.setProductCategory(pc);
+		product.setProductName("正式商品");
+		product.setProductDesc("正式商品描述");
+
+		File thumbnailFIle = new File("D:/projectdev/image/flower1.jpg");
+		InputStream is = new FileInputStream(thumbnailFIle);
+		ImageHolder thumbnail = new ImageHolder(is, thumbnailFIle.getName());
+
+		File productImg1 = new File("D:/projectdev/image/flower1.jpg");
+		InputStream is1 = new FileInputStream(productImg1);
+		File productImg2 = new File("D:/projectdev/image/flower1.jpg");
+		InputStream is2 = new FileInputStream(productImg2);
+		List<ImageHolder> productImgList = new ArrayList<>();
+		productImgList.add(new ImageHolder(is1, productImg1.getName()));
+		productImgList.add(new ImageHolder(is2, productImg2.getName()));
+
+		ProductExecution pe = productService.modifyProduct(product, thumbnail, productImgList);
+		assertEquals(ProductStateEnum.SUCCESS.getState(), pe.getState());
+	}
 }

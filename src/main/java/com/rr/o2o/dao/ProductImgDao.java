@@ -9,6 +9,6 @@ public interface ProductImgDao {
 	 * Batch Add shopImgs
 	 */
 	int batchInsertProductImg(List<ProductImg> productImgList);	
-	
+	List<ProductImg> queryProductImgList(long productId);
 	int deleteProductImgByProductId(long productId);
 }

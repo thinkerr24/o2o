@@ -1,6 +1,5 @@
 package com.rr.o2o.service;
 
-import java.io.InputStream;
 import java.util.List;
 
 import com.rr.o2o.dto.ImageHolder;
@@ -9,6 +8,9 @@ import com.rr.o2o.entity.Product;
 import com.rr.o2o.exceptions.ProductOperationException;
 
 public interface ProductService {
+	Product getProductById(long productId);
+	ProductExecution modifyProduct(Product product, ImageHolder thumbnail, 
+			List<ImageHolder> productImgHolderList) throws ProductOperationException;
 	/**
 	 * Add product-info and image-deal
 	 * @return
@@ -16,5 +18,6 @@ public interface ProductService {
 	 */
 	ProductExecution addProduct(Product product, ImageHolder thumbnail,
 			List<ImageHolder> productImgList) throws ProductOperationException;
+	
 	
 }
