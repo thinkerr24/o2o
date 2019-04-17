@@ -154,7 +154,7 @@ public class ProductManagementController {
 		return modelMap;
 	}
 
-	@RequestMapping(value = "/modifyProduct", method = RequestMethod.POST)
+	@RequestMapping(value = "/modifyproduct", method = RequestMethod.POST)
 	@ResponseBody
 	private Map<String, Object> modifyProduct(HttpServletRequest request) {
 		Map<String, Object> modelMap = new HashMap<>();
