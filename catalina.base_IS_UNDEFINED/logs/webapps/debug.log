@@ -37,3 +37,15 @@
 2019-04-18 12:11:15.934 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - ==>  Preparing: update tb_product set product_category_id = null where product_category_id=? 
 2019-04-18 12:11:15.972 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - ==> Parameters: 3(Long)
 2019-04-18 12:11:16.050 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - <==    Updates: 2
+2019-04-18 19:55:38.956 [main] DEBUG com.rr.o2o.dao.HeadLineDao.queryHeadLine - ==>  Preparing: select line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time from tb_head_line order by priority desc 
+2019-04-18 19:55:38.993 [main] DEBUG com.rr.o2o.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2019-04-18 19:55:39.184 [main] DEBUG com.rr.o2o.dao.HeadLineDao.queryHeadLine - <==      Total: 2
+2019-04-18 20:01:56.443 [main] DEBUG com.rr.o2o.dao.HeadLineDao.queryHeadLine - ==>  Preparing: select line_id, line_name, line_link, line_img, priority, enable_status, create_time, last_edit_time from tb_head_line order by priority desc 
+2019-04-18 20:01:56.474 [main] DEBUG com.rr.o2o.dao.HeadLineDao.queryHeadLine - ==> Parameters: 
+2019-04-18 20:01:56.505 [main] DEBUG com.rr.o2o.dao.HeadLineDao.queryHeadLine - <==      Total: 2
+2019-04-18 20:09:54.717 [main] DEBUG com.rr.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: select shop_category_id, shop_category_name, shop_category_img, priority, create_time, last_edit_time, parent_id from tb_shop_category WHERE parent_id is not null order by priority desc 
+2019-04-18 20:09:54.748 [main] DEBUG com.rr.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2019-04-18 20:09:54.770 [main] DEBUG com.rr.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 1
+2019-04-18 20:10:50.698 [main] DEBUG com.rr.o2o.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: select shop_category_id, shop_category_name, shop_category_img, priority, create_time, last_edit_time, parent_id from tb_shop_category WHERE parent_id is null order by priority desc 
+2019-04-18 20:10:50.745 [main] DEBUG com.rr.o2o.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2019-04-18 20:10:50.798 [main] DEBUG com.rr.o2o.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2

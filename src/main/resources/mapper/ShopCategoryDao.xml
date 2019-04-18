@@ -25,12 +25,16 @@
  			</if>
  		</where>  -->
  		 <where>
- 			<if test="shopCategoryCodition != null">
+ 		 	<if test="shopCategoryCondition == null">
+ 		 		and 
+ 		 		parent_id is null
+ 		 	</if>
+ 			<if test="shopCategoryCondition != null">
  				and parent_id is not null
  			</if>
- 			<if test="shopCategoryCodition.parent != null">
+ 			<if test="shopCategoryCondition != null and shopCategoryCondition.parent != null">
  				and
- 				parent_id = #{shopCategoryCodition.parent.shopCategoryId}
+ 				parent_id = #{shopCategoryCondition.parent.shopCategoryId}
  			</if>
  		</where> 
  		order by
