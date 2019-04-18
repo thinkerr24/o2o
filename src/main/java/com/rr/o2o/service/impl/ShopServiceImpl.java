@@ -27,7 +27,7 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize) {
-		int rowIndex = PageCalculator.calcualteRowIndex(pageIndex, pageSize);
+		int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
 		List<Shop> shopList = shopDao.queryShopList(shopCondition, rowIndex, pageSize);
 		int count = shopDao.queryShopCount(shopCondition);
 		ShopExecution se = new ShopExecution();
