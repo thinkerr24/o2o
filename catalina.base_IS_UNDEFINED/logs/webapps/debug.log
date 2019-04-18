@@ -31,3 +31,9 @@
 2019-04-18 09:44:15.055 [main] DEBUG com.rr.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: select count(1) from tb_product WHERE product_name like '%测试%' 
 2019-04-18 09:44:15.055 [main] DEBUG com.rr.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
 2019-04-18 09:44:15.055 [main] DEBUG com.rr.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2019-04-18 12:09:59.145 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - ==>  Preparing: update tb_product set product_category_id = null where product_category_id=? 
+2019-04-18 12:09:59.195 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - ==> Parameters: 14(Long)
+2019-04-18 12:09:59.195 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - <==    Updates: 0
+2019-04-18 12:11:15.934 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - ==>  Preparing: update tb_product set product_category_id = null where product_category_id=? 
+2019-04-18 12:11:15.972 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - ==> Parameters: 3(Long)
+2019-04-18 12:11:16.050 [main] DEBUG c.r.o2o.dao.ProductDao.updateProductCategoryToNull - <==    Updates: 2

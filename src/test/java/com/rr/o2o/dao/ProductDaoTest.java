@@ -129,5 +129,11 @@ public class ProductDaoTest  extends BaseTest{
 		count = productDao.queryProductCount(productCondition);
 		assertEquals(6, count);
 	}
+	
+	@Test
+	public void testEUpdateProductCategoryToNull() {
+		int effectedNum = productDao.updateProductCategoryToNull(3L);
+		assertEquals(2, effectedNum);
+	}
 
 }
