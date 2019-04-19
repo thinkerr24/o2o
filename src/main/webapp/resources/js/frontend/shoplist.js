@@ -1,3 +1,24 @@
+Date.prototype.Format = function(fmt) {
+	var o = {
+		"M+" : this.getMonth() + 1, // 月份
+		"d+" : this.getDate(), // 日
+		"h+" : this.getHours(), // 小时
+		"m+" : this.getMinutes(), // 分
+		"s+" : this.getSeconds(), // 秒
+		"q+" : Math.floor((this.getMonth() + 3) / 3), // 季度
+		"S" : this.getMilliseconds()
+	// 毫秒
+	};
+	if (/(y+)/.test(fmt))
+		fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "")
+				.substr(4 - RegExp.$1.length));
+	for ( var k in o)
+		if (new RegExp("(" + k + ")").test(fmt))
+			fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k])
+					: (("00" + o[k]).substr(("" + o[k]).length)));
+	return fmt;
+}
+
 $(function() {
 	var loading = false;
 	// 允许返回的最大条数
@@ -16,6 +37,9 @@ $(function() {
 	var shopName = '';
 
 	getSearchDivData();
+
+	// 预先加载10条
+	addItems(pageSize, pageNum);
 
 	function getSearchDivData() {
 		// 如果传入了parentId，则取出一级类别下面的所有二级类别
@@ -95,4 +119,79 @@ $(function() {
 			}
 		});
 	}
+
+	// 下滑屏幕自动进行分页搜索
+	$(document).on('infinite', '.infinite-scroll-bottom', function() {
+		if (loading)
+			return;
+		addItems(pageSize, pageNum);
+	});
+
+	// 显示店铺详情页
+	$('.shop-list').on('click', '.card', function(e) {
+		var shopId = e.currentTarget.dataset.shopId;
+		window.location.href = '/o2o/frontend/shopdetail?shopId=' + shopId;
+	});
+
+	// 选择新的店铺类别后，重置页码，清空原来的店铺列表重新加载新的搜索结果
+	$('#shoplist-search-div').on(
+			'click',
+			'.button',
+			function(e) {
+				if (parentId) {// 如果传递过来的是一个父类下的子类
+					shopCategoryId = e.target.dataset.categoryId;
+					// 如果之前选定了别的category，移除其选定效果，改成选新的
+					if ($(e.target).hasClass('button-fill')) {
+						$(e.target).removeClass('button-fill');
+						shopCategoryId = '';
+					} else {
+						$(e.target).addClass('button-fill').siblings()
+								.removeClass('button-fill');
+					}
+					// 由于查询条件发生改变，清空店铺列表再进行查询
+					$('.list-div').empty();
+					// 重置页码
+					pageNum = 1;
+					addItems(pageSize, pageNum);
+				} else {// 如果传递过来的父类为空，则按照父类查询
+					parentId = e.target.dataset.categoryId;
+					if ($(e.target).hasClass('button-fill')) {
+						$(e.target).removeClass('button-fill');
+						parentId = '';
+					} else {
+						$(e.target).addClass('button-fill').siblings()
+								.removeClass('button-fill');
+					}
+					// 由于查询条件发生改变，清空店铺列表再进行查询
+					$('.list-div').empty();
+					// 重置页码
+					pageNum = 1;
+					addItems(pageSize, pageNum);
+					parentId = '';
+				}
+			});
+
+	// 查询名字发生变化，重置页码，清空列表重新显示查询结果
+	$('#search').on('input', function(e) {
+		shopName = e.target.value;
+		$('.list-div').empty();
+		pageNum = 1;
+		addItems(pageSize, pageNum);
+	});
+
+	// 查询区域信息发生变化，重置页码，清空列表重新显示查询结果
+	$('#area-search').on('change', function() {
+		areaId = $('#area-search').val();
+		$('.list-div').empty();
+		pageNum = 1;
+		addItems(pageSize, pageNum);
+	});
+
+	// 打开右边侧栏
+	$('#me').click(function() {
+		$.openPanel('#panel-left-demo');
+	});
+
+	// 初始化
+	$.init();
 });
