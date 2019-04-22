@@ -75,8 +75,11 @@ public class ProductDaoTest  extends BaseTest{
 	
 	@Test
 	public void testBQueryProductById() throws Exception {
-		long productId = 1;
-		ProductImg productImg1 = new ProductImg();
+		long productId = 12;
+		Product product = productDao.queryProductById(productId);
+		//System.out.println(product.getProductCategory());
+		//System.out.println(product.getProductImgList().get(0).getImgAddr());
+/*		ProductImg productImg1 = new ProductImg();
 		productImg1.setImgAddr("图片1");
 		productImg1.setImgDesc("测试图片1");
 		productImg1.setPriority(1);
@@ -95,7 +98,7 @@ public class ProductDaoTest  extends BaseTest{
 		Product product = productDao.queryProductById(productId);
 		assertEquals(4, product.getProductImgList().size());
 	    effectedNum = productImgDao.deleteProductImgByProductId(productId);
-		assertEquals(4, effectedNum);
+		assertEquals(4, effectedNum);*/
 	}
 
 	@Test
