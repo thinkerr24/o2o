@@ -49,6 +49,9 @@ $(function(){
 			}
 		});
 	}
+	$('#backmanagement').click(function(){
+		window.history.back();
+	});
 	$('#submit').click(function(){
 		var shop = {};
 		if (shopId) {

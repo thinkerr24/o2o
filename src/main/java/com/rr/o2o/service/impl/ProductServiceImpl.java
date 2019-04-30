@@ -1,6 +1,9 @@
 package com.rr.o2o.service.impl;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -98,8 +101,10 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product getProductById(long productId) {
-		
-		return productDao.queryProductById(productId);
+		Product product = productDao.queryProductById(productId);
+		List<ProductImg> productImgList = productImgDao.queryProductImgList(productId);
+		product.setProductImgList(productImgList);
+		return product;
 	}
 
 	@Override
