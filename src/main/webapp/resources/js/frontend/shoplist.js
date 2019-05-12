@@ -102,10 +102,11 @@ $(function() {
 							+ '更新</p>' + '<span>点击查看</span>' + '</div>'
 							+ '</div>';
 				});
+				
 				$('.list-div').append(html);
 				// 获取目前为止以显示的总数，包含之前加载的
 				var total = $('.list-div .card').length;
-				// 如果总数和按照次查询条件列出来的总数一直，则停止加载
+				// 如果总数和按照次查询条件列出来的总数一致，则停止加载
 				if (total >= maxItems) {
 					// 隐藏加载提示符
 					$('.infinite-scroll-preloader').hide();
@@ -173,7 +174,7 @@ $(function() {
 			});
 
 	// 查询名字发生变化，重置页码，清空列表重新显示查询结果
-	$('#search').on('input', function(e) {
+	$('#search').on('change', function(e) {
 		shopName = e.target.value;
 		$('.list-div').empty();
 		pageNum = 1;
